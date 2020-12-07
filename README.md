@@ -19,5 +19,7 @@
 
 <h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>TL;DR:</a></h2>
 
-HTTP request smuggling is a technique for **interfering** with the way of website process the sequences of HTTP requests that are received from one or more users.
-This vulnerabilities are often `critical` in nature, allowing an attacker to bypass **security controls**, gain **unauthorized access** to sensitive data, and directly compromise other application users
+HTTP request smuggling is a technique for **`interfering`** with the way of website process the sequences of HTTP requests that are received from one or more users.
+This vulnerabilities are often **`critical`** in nature, allowing an attacker to bypass **security controls**, gain **unauthorized access** to sensitive data, and directly compromise other application users.
+
+Here We'll discuss about **`CL.TE`** and **`TE.CL`**
