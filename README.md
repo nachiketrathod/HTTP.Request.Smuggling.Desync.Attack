@@ -19,4 +19,5 @@
 
 <h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>TL;DR:</a></h2>
 
-<h1><a href="https://github.com/TcNobo/TcNo-Acc-Switcher/wiki">Wiki</a></h1>
+<p>This is stego</p>
+
