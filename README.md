@@ -15,4 +15,5 @@
       <a href="https://www.linkedin.com/in/nachiketrathod">
            <img alt="linkedin nachiketrathod" src="https://img.shields.io/badge/LinkedIn-nachiketrathod-0077B5?style=flat-square&logo=linkedin&logoColor=00acee"></a>
            <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/nachiketrathod/HTTP.Request.Smuggling.Lab?logo=github&style=flat-square">
+	   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/nachiketrathod/HTTP.Request.Smuggling.Lab?logo=Github&style=flat-square">
 </p>
