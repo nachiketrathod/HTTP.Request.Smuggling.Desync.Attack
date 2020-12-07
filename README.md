@@ -19,5 +19,5 @@
 
 <h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>TL;DR:</a></h2>
 
-<p>This is stego</p>
+`This is stego`
 
