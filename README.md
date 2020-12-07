@@ -6,8 +6,7 @@
 	     <img src="/Images/request.png" height=190 width=1000"></a>
 </p>
 
-<p align="center">
-   <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/nachiketrathod/HTTP.Request.Smuggling.Lab/total?logo=github&style=flat-square">   
+<p align="center">   
      <a href="https://nachiketrathod.com">
 	    <img alt="Website" src="https://img.shields.io/website?style=flat-square&up_color=%2300ff00&up_message=nachiketrathod.com&url=https%3A%2F%2Fnachiketrathod.com"></a>
       <a href="https://www.twitter.com/4ccess0denie1">
