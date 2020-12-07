@@ -1,10 +1,10 @@
 # HTTP.Request.Smuggling.Lab
 
-
 <p align="center">
       <a href="http://nachiketrathod.com">
 	     <img src="/Images/request.png" height=190 width=1000"></a>
 </p>
+								  
 
 <p align="center">   
      <a href="https://nachiketrathod.com">
@@ -16,3 +16,7 @@
            <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/nachiketrathod/HTTP.Request.Smuggling.Lab?logo=github&style=flat-square">
 	   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/nachiketrathod/HTTP.Request.Smuggling.Lab?logo=Github&style=flat-square">
 </p>
+
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>TL;DR:</a></h2>
+
+<h1><a href="https://github.com/TcNobo/TcNo-Acc-Switcher/wiki">Wiki</a></h1>
