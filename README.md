@@ -23,5 +23,5 @@ HTTP request smuggling is a technique for **`interfering`** with the way of webs
 This page discusses all techniques used for request smuggling **`/`** desync attack. `E.g.` **`CL.TE`**,**`TE.CL`**,**`CL.CL`** and **`TE.TE`** .
 This vulnerabilities are often **`critical`** in nature, allowing an attacker to bypass **security controls**, gain **unauthorized access** to sensitive data, and directly compromise other application users.
 
-**Lab** : Exploiting HTTP request smuggling to bypass front-end security controls, **TE.CL** vulnerability
+**Lab** : Exploiting HTTP request smuggling to bypass front-end security controls via **TE.CL** vulnerability.
 
