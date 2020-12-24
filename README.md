@@ -51,7 +51,7 @@ These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepaliv
 
 ***Question, what dose it even mean?***
 
-- That means that every reqests are placed back to back on these streams and every server on the chain is expected to pass the `HTTP-Headers` to workout how long each message is and therefore where that message stops and where the next one starts.
+- That means that every reqests are placed back to back on these streams and every server parses `HTTP-Headers` to workout where each one ends and the next one starts.
     
 - So from all over the world request are coming and passing through this tiny tunnel of **TLS/TCP** streams and passing to the backend and then split up into individual requests.
 
@@ -70,9 +70,10 @@ These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepaliv
 
 But for some reason **Back-end** thinks that this message will finishes with second blue block and therefore it thinks that orange bit of data is the start of the next request and it's just gonna wait for that second request to be finished until that request is completed.
 
-**And what's gonna complete that request? well by someone else sending a request to the application**
+**And what's gonna complete that request? well by someone else sending a request to the application**. So we can apply **`arbitary prefix`** to someone else request via smuggling.
 
 <p align="left">
       <a href="http://nachiketrathod.com">
 	     <img src="/Images/4.png" height=400 width=700"></a>
 </p>
+
