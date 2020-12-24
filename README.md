@@ -30,3 +30,5 @@ This vulnerabilities are often **`critical`** in nature, allowing an attacker to
 <p>"Smashing into the Cell Next Door"</p>
 <p>"Hiding Wookiees in HTTP"</p>
 </blockquote>
+
+### **What is HTTP Request Smuggling?**
