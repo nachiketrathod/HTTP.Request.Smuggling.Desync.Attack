@@ -25,3 +25,8 @@ This vulnerabilities are often **`critical`** in nature, allowing an attacker to
 
 **Lab** : Exploiting HTTP request smuggling to bypass front-end security controls via **TE.CL** vulnerability.
 
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>1. Introduction</a></h2>
+<blockquote>
+<p>"Smashing into the Cell Next Door"</p>
+<p>"Hiding Wookiees in HTTP"</p>
+</blockquote>
