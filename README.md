@@ -32,3 +32,10 @@ This vulnerabilities are often **`critical`** in nature, allowing an attacker to
 </blockquote>
 
 ### **What is HTTP Request Smuggling?**
+
+1.  If you picturised any website as an **end user** it would probably look like this, why because that's all that you can directly see.
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	     <img src="/Images/1.png" height=300 width=300"></a>
+</p>
