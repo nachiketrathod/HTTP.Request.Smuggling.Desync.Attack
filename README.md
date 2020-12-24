@@ -39,3 +39,40 @@ This vulnerabilities are often **`critical`** in nature, allowing an attacker to
       <a href="http://nachiketrathod.com">
 	     <img src="/Images/1.png" height=300 width=300"></a>
 </p>
+							   
+2.  Morden websites communicate to each other via chain of `web-servers` speaking HTTP over stream based transport layer proctol like TCP or TLS.
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	     <img src="/Images/2.png" height=300 width=600"></a>
+</p>
+
+These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepalive` protocol.
+
+***Question, what dose it even mean?***
+
+- That means that every reqests are placed back to back on these streams and every server on the chain is expected to pass the `HTTP-Headers` to workout how long each message is and therefore where that message stops and where the next one starts.
+    
+- So from all over the world request are coming and passing through this tiny tunnel of **TLS/TCP** streams and passing to the backend and then split up into individual requests.
+
+***Question, what could possibly go wrong here?***
+
+- what if an attacker sends an ambiguous reqest which is deliberately crafted and so that `front-end` and `back-end` disagree about how long this messages is.
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	     <img src="/Images/3.png" height=300 width=700"></a>
+</p>
+
+## `Example,`
+
+**Front-end** will thinks that this `Blue + Orange` block of data is one request, so immediately it will send the whole thing to backend.
+
+But for some reason **Back-end** thinks that this message will finishes with second blue block and therefore it thinks that orange bit of data is the start of the next request and it's just gonna wait for that second request to be finished until that request is completed.
+
+**And what's gonna complete that request? well by someone else sending a request to the application**
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	     <img src="/Images/4.png" height=400 width=700"></a>
+</p>
