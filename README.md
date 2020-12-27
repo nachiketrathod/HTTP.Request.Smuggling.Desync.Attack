@@ -89,14 +89,14 @@ But for some reason **Back-end** thinks that this message will finishes with sec
 
 Well, it could be someone else sending a request to the application. So an attacker can apply **`arbitary prefix/content`** to someone else request via smuggling and That's the core primitive of this technique.
 
-### `Desynchronizing: the classic approach`
+### `1. Desynchronizing: the classic approach CL.CL`
 
 **`Example:`**
 
 <p align="left">
       <a href="http://nachiketrathod.com">
 	   <kbd>
-	     <img src="/Images/5.png" height=300 width=750"></a>
+	     <img src="/Images/5.png" height=280 width=750"></a>
 	    </kbd>
 </p>
 
@@ -112,14 +112,14 @@ check that in the below example,
 <p align="left">
       <a href="http://nachiketrathod.com">
 	   <kbd>
-	     <img src="/Images/6.png" height=300 width=750"></a>
+	     <img src="/Images/6.png" height=280 width=750"></a>
 	    </kbd>
 </p>
 
 **Note: This above technique is so old-school and classic that it doesn't actually work on anything that's worth hacking these days.**
 
 #### ***`Question, if not the classic approach then which technique works on the plenty of interesting systems?`***
-In real life, the dual content-length technique rarely works because many systems sensibly reject requests with multiple content-length headers. Instead, we're going to attack systems using chunked encoding and this time we've got the specification RFC 2616 on our side.
+In real life, the dual content-length technique rarely works because many systems sensibly reject requests with multiple content-length headers. Instead, we're going to attack systems using chunked encoding and this time we've got the specification [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.6.1) on our side.
 
 <p align="center">
       <a href="http://nachiketrathod.com">
@@ -136,7 +136,7 @@ You might not be very familiar with chunked encoding since tools like Burp Suite
 - Each chunk consists of the `chunk size`, `followed by a newline`, `followed by the chunk contents`. 
 - The message is **`terminated with a chunk of size 0.`** 
 
-### `Desynchronizing: the chunked approach`
+### `2. Desynchronizing: the chunked approach CL.TE`
 
 **`Example:`**
 
@@ -160,5 +160,17 @@ As you can see here,
 	    </kbd>
 </p>
 
+### `3. Desynchronizing: the TE.CL approach`
 
+`If it's the backend that doesn't support chunked encoding, we'll need to flip the offsets around:`
 
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/10.png" height=280 width=700"></a>
+	    </kbd>
+</p>
+
+#### ***`Question, why the Content-Length is 3?`***
+
+As you can see in the above fig. there is only one visible byte of data which is 6 that's because every line ends with standard HTTP Line ending which is **`\r\n`.**
