@@ -71,7 +71,7 @@ These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepaliv
 
 But for some reason **Back-end** thinks that this message will finishes with second blue block and therefore it thinks that orange bit of data is the start of the next request and it's just gonna wait for that second request to be finished until that request is completed.
 
-**And what's gonna complete that request? well by someone else sending a request to the application**. So we can apply **`arbitary prefix`** to someone else request via smuggling.
+**And what's gonna complete that request? well, it could be someone else sending a request to the application**. So we can apply **`arbitary prefix`** to someone else request via smuggling.
 
 <p align="left">
       <a href="http://nachiketrathod.com">
