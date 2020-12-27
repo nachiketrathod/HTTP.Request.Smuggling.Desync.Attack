@@ -62,7 +62,8 @@ These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepaliv
 
 #### ***`Question, what could possibly go wrong here?`***
 
-- what if an attacker sends an ambiguous reqest which is deliberately crafted and so that `front-end` and `back-end` disagree about how long this messages is.
+- what if an attacker sends an ambiguous reqest which is deliberately crafted and so that `front-end` and `back-end` disagree about how long this messages is. 
+- let's understand this with below example,
 
 <p align="left">
       <a href="http://nachiketrathod.com">
@@ -71,7 +72,7 @@ These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepaliv
 	</kbd>
 </p>
 
-## ` In above Example,`
+### `Example,`
 
 **Front-end** will thinks that this `Blue + Orange` block of data is one request, so immediately it will send the whole thing to backend.
 
@@ -86,4 +87,9 @@ But for some reason **Back-end** thinks that this message will finishes with sec
 	    </kbd>
 </p>
 
-Well, it could be someone else sending a request to the application. So we can apply **`arbitary prefix`** to someone else request via smuggling.
+Well, it could be someone else sending a request to the application. So an attacker can apply **`arbitary prefix/content`** to someone else request via smuggling and That's the core primitive of this technique.
+
+### `Desynchronizing: the classic approach`
+
+**`Example`**
+
