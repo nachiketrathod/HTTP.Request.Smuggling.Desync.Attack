@@ -149,7 +149,7 @@ You might not be very familiar with chunked encoding since tools like Burp Suite
 
 - **chunked-encoding is an alternative way of specifying the length of the message whereby insted of specifying it upfront you send transfer-encoding chunked and that triggers the server to parse the body of the request and until it reaches the terminating chunk which is a zero followed by an empty line.**
 
-As you can see here, 
+  As you can see here, 
 
 - If the Front-end looks at the C.L --> 6 and Back-end treats this message as chunked than we'll see the exactly the same result as the classic approach which is **"Unknown method GPOST".**
 
@@ -173,4 +173,17 @@ As you can see here,
 
 #### ***`Question, why the Content-Length is 3?`***
 
-As you can see in the above fig. there is only one visible byte of data which is 6 that's because every line ends with standard HTTP Line ending which is **`\r\n`.**
+As you can see in the above example there is only one visible byte of data which is 6 that's because every line ends with standard HTTP Line ending which is **`\r\n`.**
+
+- This technique(TE.CL) works on quite a few systems, but we can exploit many more by making the TransferEncoding header slightly harder to spot, so that one system doesn't see it.  
+- This can be achieved using discrepancies in server's HTTP parsing. Here's a few examples of requests where only some servers recognise
+the Transfer-Encoding:	chunked header.
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/11.png" height=600 width=500"></a>
+	    </kbd>
+</p>
+
+Note: **"Each of these quirks is harmless if both the front-end and back-end server have it, and a major threat otherwise."**
