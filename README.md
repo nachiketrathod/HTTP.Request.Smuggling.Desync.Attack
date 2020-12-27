@@ -71,13 +71,13 @@ These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepaliv
 	</kbd>
 </p>
 
-## `Example,`
+## ` In above Example,`
 
 **Front-end** will thinks that this `Blue + Orange` block of data is one request, so immediately it will send the whole thing to backend.
 
 But for some reason **Back-end** thinks that this message will finishes with second blue block and therefore it thinks that orange bit of data is the start of the next request and it's just gonna wait for that second request to be finished until that request is completed.
 
-**And what's gonna complete that request? well, it could be someone else sending a request to the application**. So we can apply **`arbitary prefix`** to someone else request via smuggling.
+**And what's gonna complete that request?** 
 
 <p align="left">
       <a href="http://nachiketrathod.com">
@@ -86,3 +86,4 @@ But for some reason **Back-end** thinks that this message will finishes with sec
 	    </kbd>
 </p>
 
+Well, it could be someone else sending a request to the application. So we can apply **`arbitary prefix`** to someone else request via smuggling.
