@@ -189,3 +189,23 @@ the Transfer-Encoding:	chunked header.
 Note: **"Each of these quirks is harmless if both the front-end and back-end server have it, and a major threat otherwise."**
 
 <h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>2. Methodology</a></h2>
+
+The theory behind request smuggling is straightforward, but the number of uncontrolled variables and our
+total lack of visibility into what's happening behind the front-end can cause complications.
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/12.png" height=300 width=900"></a>
+	    </kbd>
+</p>
+							    
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>3. Detecting desync</a></h2>
+
+- To detect request smuggling we've to issue an ambiguous request followed by a normal 'Victim' request, then observe whether the latter gets an unexpected response.
+- However, this is extremely prone to interference; if another user's request hits the poisoned socket before our victim
+request, they'll get the corrupted response and we won't spot the vulnerability. This means that on a live site
+with a high volume of traffic it can be hard to prove request smuggling exists without exploiting numerous
+genuine users in the process.
+
+							    
