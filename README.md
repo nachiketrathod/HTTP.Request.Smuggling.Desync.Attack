@@ -25,7 +25,7 @@ This vulnerabilities are often **`critical`** in nature, allowing an attacker to
 
 **Lab** : Exploiting HTTP request smuggling to bypass front-end security controls via **TE.CL** vulnerability.
 
-<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>1. Introduction</a></h2>
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>1. Core concepts</a></h2>
 <blockquote>
 <p>"Smashing into the Cell Next Door"</p>
 <p>"Hiding Wookiees in HTTP"</p>
@@ -63,7 +63,7 @@ These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepaliv
 #### ***`Question, what could possibly go wrong here?`***
 
 - what if an attacker sends an ambiguous reqest which is deliberately crafted and so that `front-end` and `back-end` disagree about how long this messages is. 
-- let's understand this with below example,
+- **let's understand this with below example,**
 
 <p align="left">
       <a href="http://nachiketrathod.com">
@@ -72,7 +72,7 @@ These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepaliv
 	</kbd>
 </p>
 
-### `Example,`
+**`Example`**
 
 **Front-end** will thinks that this `Blue + Orange` block of data is one request, so immediately it will send the whole thing to backend.
 
@@ -92,4 +92,47 @@ Well, it could be someone else sending a request to the application. So an attac
 ### `Desynchronizing: the classic approach`
 
 **`Example`**
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/5.png" height=300 width=750"></a>
+	    </kbd>
+</p>
+
+This is an example of an ambiguous request. this one is ambiguous because we are using absolute classic old school `Desynchronization` technique.
+- In this example, we simply specifed Content-Length header (C.L) twice. 
+- Front-end will use **`C.L - 6`** --> will forward data up to Orange one (12345G) to the Back-end.
+- Back-end will use  **`C.L - 5`** --> and it'll thik that **Orange - G** is the start of the next request.
+
+In this example, the injected **'G'** will corrupt the `green user's` real request and they will probably get a response along the lines of **"Unknown method GPOST".**
+ 
+check that in the below example,
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/6.png" height=300 width=750"></a>
+	    </kbd>
+</p>
+
+**Note: This above technique is so old-school and classic that it doesn't actually work on anything that's worth hacking these days.**
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/7.png" height=50 width=750"></a>
+	    </kbd>
+</p>
+
+#### ***`Question, if not the classic approch then which technique works on the plenty of interesting systems?`***
+In real life, the dual content-length technique rarely works because many systems sensibly reject requests with multiple content-length headers. Instead, we're going to attack systems using chunked encoding and this time we've got the specification RFC 2616 on our side.
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/7.png" height=50 width=750"></a>
+	    </kbd>
+</p>
+
 
