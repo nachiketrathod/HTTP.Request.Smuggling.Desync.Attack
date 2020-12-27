@@ -55,7 +55,7 @@ These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepaliv
     
 - So from all over the world request are coming and passing through this tiny tunnel of **TLS/TCP** streams and passing to the backend and then split up into individual requests.
 
-***Question, what could possibly go wrong here?***
+***`Question, what could possibly go wrong here?`***
 
 - what if an attacker sends an ambiguous reqest which is deliberately crafted and so that `front-end` and `back-end` disagree about how long this messages is.
 
