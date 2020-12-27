@@ -118,13 +118,6 @@ check that in the below example,
 
 **Note: This above technique is so old-school and classic that it doesn't actually work on anything that's worth hacking these days.**
 
-<p align="left">
-      <a href="http://nachiketrathod.com">
-	   <kbd>
-	     <img src="/Images/7.png" height=50 width=750"></a>
-	    </kbd>
-</p>
-
 #### ***`Question, if not the classic approch then which technique works on the plenty of interesting systems?`***
 In real life, the dual content-length technique rarely works because many systems sensibly reject requests with multiple content-length headers. Instead, we're going to attack systems using chunked encoding and this time we've got the specification RFC 2616 on our side.
 
