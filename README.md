@@ -118,7 +118,7 @@ check that in the below example,
 
 **Note: This above technique is so old-school and classic that it doesn't actually work on anything that's worth hacking these days.**
 
-#### ***`Question, if not the classic approch then which technique works on the plenty of interesting systems?`***
+#### ***`Question, if not the classic approach then which technique works on the plenty of interesting systems?`***
 In real life, the dual content-length technique rarely works because many systems sensibly reject requests with multiple content-length headers. Instead, we're going to attack systems using chunked encoding and this time we've got the specification RFC 2616 on our side.
 
 <p align="center">
@@ -147,9 +147,11 @@ You might not be very familiar with chunked encoding since tools like Burp Suite
 	    </kbd>
 </p>
 
-chunked-encoding is an alternative way of specifying the length of the message whereby insted of specifying it upfront you send transfer-encoding chunked and that triggers the server to parse the body of the request and until it reaches the terminating chunk which is a zero followed by an empty line.
+- **chunked-encoding is an alternative way of specifying the length of the message whereby insted of specifying it upfront you send transfer-encoding chunked and that triggers the server to parse the body of the request and until it reaches the terminating chunk which is a zero followed by an empty line.**
 
-As you can see here,
+As you can see here, 
+
+- If the Front-end looks at the C.L --> 6 and Back-end treats this message as chunked than we'll see the exactly the same result as the classic approach which is **"Unknown method GPOST".**
 
 <p align="left">
       <a href="http://nachiketrathod.com">
@@ -157,5 +159,6 @@ As you can see here,
 	     <img src="/Images/9.png" height=300 width=700"></a>
 	    </kbd>
 </p>
+
 
 
