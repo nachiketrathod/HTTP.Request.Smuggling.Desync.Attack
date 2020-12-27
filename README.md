@@ -116,7 +116,7 @@ check that in the below example,
 	    </kbd>
 </p>
 
-**Note: This above technique is so old-school and classic that it doesn't actually work on anything that's worth hacking these days.**
+Note: **This above technique is so old-school and classic that it doesn't actually work on anything that's worth hacking these days.**
 
 #### ***`Question, if not the classic approach then which technique works on the plenty of interesting systems?`***
 In real life, the dual content-length technique rarely works because many systems sensibly reject requests with multiple content-length headers. Instead, we're going to attack systems using chunked encoding and this time we've got the specification [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.6.1) on our side.
@@ -187,3 +187,5 @@ the Transfer-Encoding:	chunked header.
 </p>
 
 Note: **"Each of these quirks is harmless if both the front-end and back-end server have it, and a major threat otherwise."**
+
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>2. Methodology</a></h2>
