@@ -49,7 +49,7 @@ This vulnerabilities are often **`critical`** in nature, allowing an attacker to
 
 These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepalive` protocol.
 
-***Question, what dose it even mean?***
+***`Question, what dose it even mean?`***
 
 - That means that every reqests are placed back to back on these streams and every server parses `HTTP-Headers` to workout where each one ends and the next one starts.
     
