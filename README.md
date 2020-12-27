@@ -40,7 +40,7 @@ This vulnerabilities are often **`critical`** in nature, allowing an attacker to
 	     <img src="/Images/1.png" height=300 width=290"></a>
 </p>
 							   
-2.  Morden websites communicate to each other via chain of `web-servers` speaking HTTP over **`stream based transport layer proctols`** like TCP or TLS.
+2.  Morden websites communicate to each other via chain of `web-servers` speaking HTTP over **`stream based transport layer proctols`** like `TCP or TL`.
 
 <p align="left">
       <a href="http://nachiketrathod.com">
