@@ -62,7 +62,9 @@ These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepaliv
 
 <p align="left">
       <a href="http://nachiketrathod.com">
-	     <img src="/Images/3.png" height=300 width=800"></a>
+	<kbd>   
+		<img src="/Images/3.png" height=300 width=800"></a> 
+	</kbd>
 </p>
 
 ## `Example,`
