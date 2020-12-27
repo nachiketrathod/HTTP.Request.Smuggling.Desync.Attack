@@ -49,13 +49,14 @@ This vulnerabilities are often **`critical`** in nature, allowing an attacker to
 
 These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepalive` protocol.
 
-***`Question, what dose it even mean?`***
+
+#### ***`Question, what dose it even mean?`***
 
 - That means that every reqests are placed back to back on these streams and every server parses `HTTP-Headers` to workout where each one ends and the next one starts.
     
 - So from all over the world request are coming and passing through this tiny tunnel of **TLS/TCP** streams and passing to the backend and then split up into individual requests.
 
-***`Question, what could possibly go wrong here?`***
+#### ***`Question, what could possibly go wrong here?`***
 
 - what if an attacker sends an ambiguous reqest which is deliberately crafted and so that `front-end` and `back-end` disagree about how long this messages is.
 
