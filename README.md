@@ -128,9 +128,23 @@ In real life, the dual content-length technique rarely works because many system
 	    </kbd>
 </p>
 
-Since the specification implicitly allows processing requests using both Transfer-Encoding: chunked and Content-Length, few servers reject such requests. Whenever we find a way to hide the Transfer-Encoding header from one server in a chain it will fall back to using the Content-Length and we can desynchronize the whole system.
+Since the specification implicitly allows processing requests using both `Transfer-Encoding: chunked` and `Content-Length`, few servers reject such requests.
+Whenever we find a way to hide the Transfer-Encoding header from one server in a chain it will fall back to using the Content-Length and we can desynchronize the whole system.
 
-You might not be very familiar with chunked encoding since tools like Burp Suite automatically buffer chunked requests/responses into regular messages for ease of editing. In a chunked message, the body consists of 0 or more chunks. Each chunk consists of the chunk size, followed by a newline, followed by the chunk contents. The message is terminated with a chunk of size 0. 
+You might not be very familiar with chunked encoding since tools like Burp Suite automatically buffer chunked requests/responses into regular messages for ease of editing. 
+- In a chunked message: **`the body consists of 0 or more chunks.`** 
+- Each chunk consists of the `chunk size`, `followed by a newline`, `followed by the chunk contents`. 
+- The message is **`terminated with a chunk of size 0.`** 
 
-**`Here's simple desynchronisation attack using chunked encoding`**:
+### `Desynchronizing: the chunked approach`
+
+**`Example:`**
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/8.png" height=300 width=750"></a>
+	    </kbd>
+</p>
+
 
