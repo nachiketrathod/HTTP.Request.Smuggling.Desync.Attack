@@ -37,14 +37,18 @@ This vulnerabilities are often **`critical`** in nature, allowing an attacker to
 
 <p align="left">
       <a href="http://nachiketrathod.com">
+	   <kbd>
 	     <img src="/Images/1.png" height=300 width=290"></a>
+            </kbd>
 </p>
 							   
 2.  Morden websites communicate to each other via chain of `web-servers` speaking HTTP over `stream based transport layer proctols` like **`TCP or TLS`**.
 
 <p align="left">
       <a href="http://nachiketrathod.com">
+	   <kbd>
 	     <img src="/Images/2.png" height=300 width=550"></a>
+	    </kbd>
 </p>
 
 These streams(**TLS/TCP**) are heavily reused and follows the HTTP 1.1 `keepalive` protocol.
@@ -77,6 +81,8 @@ But for some reason **Back-end** thinks that this message will finishes with sec
 
 <p align="left">
       <a href="http://nachiketrathod.com">
+	   <kbd>
 	     <img src="/Images/4.png" height=400 width=750"></a>
+	    </kbd>
 </p>
 
