@@ -143,7 +143,18 @@ You might not be very familiar with chunked encoding since tools like Burp Suite
 <p align="left">
       <a href="http://nachiketrathod.com">
 	   <kbd>
-	     <img src="/Images/8.png" height=300 width=750"></a>
+	     <img src="/Images/8.png" height=300 width=700"></a>
+	    </kbd>
+</p>
+
+chunked-encoding is an alternative way of specifying the length of the message whereby insted of specifying it upfront you send transfer-encoding chunked and that triggers the server to parse the body of the request and until it reaches the terminating chunk which is a zero followed by an empty line.
+
+As you can see here,
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/9.png" height=300 width=700"></a>
 	    </kbd>
 </p>
 
