@@ -246,4 +246,92 @@ risk of affecting other users.
    * `CL.CL`  -->  Back-end Response
    * `TE.TE`  -->  Back-end Response
    * `TE.CL`  -->  Timeout
-   * `CL.TE`  -->  Socket poision :nauseated_face:
+   * `CL.TE`  -->  Socket poision :nauseated_face: [this approach will poison the backend socket with an X, potentially harming legitimate users. Fortunately, by always running the prior detection method first, we can rule out that possibility.]
+
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>4. Confirming desync</a></h2>
+
+- In this step will see the full potential of request smuggling is to prove backend socket poisoning is possible.
+- To do this we'll issue a request designed to poison a backend socket, followed by a request which will hopefully fall victim to the poison.
+- If the first request causes an error the backend server may decide to close the connection, discarding the poisoned buffer and breaking the attack.
+- Try to avoid this by targeting an endpoint that is designed to accept a POST request, and preserving any expected GET/POST parameters.
+
+   Note: **Some sites have multiple distinct backend systems, with the front-end looking at each request's method,URL, and headers to decide `where to route it`. If the `victim request gets routed to a different back-end from the attack request, the attack will fail`. As such, the 'attack' and 'victim' requests should initially be as similar as possible.**
+ 
+**`4.1) If the target request looks like:`**
+<p>
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/16.png" height=200 width=600"></a>
+	    </kbd>
+</p>
+
+
+**`4.2) This is what an attack might look like:`**  
+<p>
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/15.png" height=300 width=700"></a>
+	    </kbd>
+</p>
+
+**`4.3) [CL.TE] and [TE.CL] socket poisoning would look like:`**
+<p>
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/17.png" height=300 width=700"></a>
+	    </kbd>
+</p>
+
+* `CL.TE` --> If the attack is successful the victim request (in green) will get a 404 response.
+* `TE.CL` --> **`The TE.CL attack looks similar, but the need for a closing chunk means we need to specify all the headers ourselves and place the victim request in the body. Ensure the Content-Length in the prefix is slightly larger than the body.`**
+
+Note: **If the site is live, another user's request may hit the poisoned socket before yours, which will make your attack fail and potentially upset the user. As a result this process often takes a few attempts, and on hightraffic sites may require thousands of attempts. Please exercise both caution and restraint, and target staging servers were possible.**
+
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>5. Explore</a></h2>
+
+I'll demonstrate the **`[TE.CL]`** attack via vulnrable Lab
+
+Application server validate http request length on the basis of two headers.
+1. Transfer-Encoding
+2. Content-Length
+
+On Live senario server has multiple load balancer or Frontend and Backend server which process the request. We are aim to exploit improper validation of request on application.
+Assume, We have 4 different senarios,
+1. Frontend server is validating the request length via Transfer-Encoding and Backend server validating via Content-Length headers.
+2. Frontend server is validating the request length via Content-Length and Backend server validating via Transfer-Encoding headers.
+3. Frontend server is validating the request length via Content-Length and Backend server validating via Content-Length headers.
+4. Frontend server is validating the request length via Transfer-Encoding and Backend server validating via Transfer-Encoding headers.
+
+To learn more types of attack visit [This Blog](https://medium.com/@knownsec404team/protocol-layer-attack-http-request-smuggling-cc654535b6f)
+
+### **Transfer-Encoding and Content-Length Header:**
+
+**`Transfer-Encoding:`**
+When the server needs to send large amount of data, chunked encoding is used by the server because it did not exactly know how big (length) the data is going to be. In HTTP terms, when server sends response Content-Length header is omitted by the server. Instead server writes the length of current chunk in hexadecimal format followed by \r\n and then chunk, followed by \r\n (Content begins with chunk size in hex followed by chunk).
+This feature can be used for progressive rendering; however the server needs to flush the data as much as possible so that client can render content progressively.
+This feature is often used when server pushes data to the client in large amounts - usually in large size (mega/giga).
+
+For more visit [This Blog](https://stackoverflow.com/questions/19907628/transfer-encoding-chunked)
+
+**`Content-Length:`**
+The Content-Length entity-header field indicates the size of the entity-body, in decimal number of OCTETs, sent to the recipient or, in the case of the HEAD method, the size of the entity-body that would have been sent had the request been a GET.
+
+For more visit [This Blog](https://stackoverflow.com/questions/2773396/whats-the-content-length-field-in-http-header)
+
+### **Live Demo:**
+
+<p>
+      <a href="https://drive.google.com/file/d/12TvWtaJgUNUw7awFeGUYW9mQbh7NTY0s/view">
+	   <kbd>
+	     <img src="/Images/Live.png" height=300 width=650"></a>
+	    </kbd>
+</p>
+
+**`Calculating Transfer-Encoding header:`**
+
+<p>
+      <a href="https://drive.google.com/file/d/12TvWtaJgUNUw7awFeGUYW9mQbh7NTY0s/view">
+	   <kbd>
+	     <img src="/Images/Live.png" height=300 width=700"></a>
+	    </kbd>
+</p>
