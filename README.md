@@ -289,7 +289,7 @@ Note: **If the site is live, another user's request may hit the poisoned socket 
 
 <h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>5. Explore</a></h2>
 
-I'll demonstrate the **`[TE.CL]`** attack via vulnrable Lab
+I'll demonstrate the **`[TE.CL]`** attack via vulnrable Lab created with [Muzkkir Husseni](https://github.com/mymuzzy/FinitHicDeo).
 
 Application server validate http request length on the basis of two headers.
 1. Transfer-Encoding
@@ -323,7 +323,7 @@ For more visit [This Blog](https://stackoverflow.com/questions/2773396/whats-the
 <p>
       <a href="https://drive.google.com/file/d/12TvWtaJgUNUw7awFeGUYW9mQbh7NTY0s/view">
 	   <kbd>
-	     <img src="/Images/Live.png" height=300 width=650"></a>
+	     <img src="/Images/FHD.png" height=300 width=650"></a>
 	    </kbd>
 </p>
 
@@ -385,3 +385,18 @@ Host: 127.0.0.1:8080
 							    
 For learn more you can visit [PortSwigger's Labs](https://portswigger.net/web-security/request-smuggling). They provide free and has almost every attacks labs for practice. Also, visit writeups to stay upto date with latest attack techniques.
 							    
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>References:</a></h2>
+
+ * https://medium.com/@knownsec404team/protocol-layer-attack-http-request-smuggling-cc654535b6f
+ * https://www.cgisecurity.com/lib/HTTP-Request-Smuggling.pdf
+ * https://i.blackhat.com/USA-19/Wednesday/us-19-Kettle-HTTP-Desync-Attacks-Smashing-Into-The-Cell-Next-Door.pdf
+
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>Lab Download:</a></h2>
+
+ * [Parctice lab](https://drive.google.com/file/d/12TvWtaJgUNUw7awFeGUYW9mQbh7NTY0s/view)
+
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>Special Thanks</a></h2>
+
+ - [James Kettle](https://twitter.com/albinowax)
+ - [Muzkkir Husseni](https://github.com/mymuzzy/FinitHicDeo)
+ - [Nishith Khadadiya](https://twitter.com/busk3r)
