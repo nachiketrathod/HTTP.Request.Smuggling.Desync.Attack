@@ -246,4 +246,4 @@ risk of affecting other users.
    * `CL.CL`  -->  Back-end Response
    * `TE.TE`  -->  Back-end Response
    * `TE.CL`  -->  Timeout
-   * `CL.TE`  -->  Socket poision ![alt text](https://github.com/nachiketrathod/HTTP.Request.Smuggling.Lab/blob/main/Images/danger.png "danger")
+   * `CL.TE`  -->  Socket poision :nauseated_face:
