@@ -1,4 +1,4 @@
-# HTTP.Request.Smuggling.Attack.Lab
+# HTTP.Request.Smuggling.Desync.Attack
 
 <p align="center">
       <a href="http://nachiketrathod.com">
