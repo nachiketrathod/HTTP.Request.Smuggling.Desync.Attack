@@ -350,9 +350,15 @@ Host: 127.0.0.1:8080
 	    </kbd>
 </p>
 
-On above example we are having the TE-CL Vulnerability on server. Let me explain all values one by one.
-- "Content-Length" header in request is set according to the size of the "2c\r\n" bytes. According to method, we are calculating the total size of first line of the content. Here we also calculating the "\r\n" new line feed.
-- "Transfer-Encoding" header is calculated by total bytes of the content. Here we are having simple HTTP GET request which size is 44 till the header ends, after "\r\n\r\n0" which indicate to stop. Decimal 44 is now converted to hexadecimal which gives "2c". The reason we have added "2c" before the content is the total hexadecimal value of the content. - After the "0" we have to add two "\r\n" line feed and send the request to the server.
+On above example we are having the **`TE-CL`** Vulnerability on server. Let me explain all values one by one.
+- **"Content-Length"** header in request is set according to the size of the `"2c\r\n"` bytes. 
+- According to method, we are calculating the total size of first line of the content. 
+- Here we also calculating the "\r\n" new line feed.
+
+- **"Transfer-Encoding"** header is calculated by total bytes of the content. 
+- Here we are having simple HTTP GET request which size is 44 till the header ends, after "\r\n\r\n0" which indicate to stop. 
+- Decimal 44 is now converted to hexadecimal which gives "2c". The reason we have added "2c" before the content is  the total hexadecimal value of the content. 
+- After the "0" we have to add two "\r\n" line feed and send the request to the server.
 
 If you send below request to the CTF server. which gives the response with the flag.
 
@@ -383,7 +389,7 @@ Host: 127.0.0.1:8080
 </p>
 							    
 							    
-For learn more you can visit [PortSwigger's Labs](https://portswigger.net/web-security/request-smuggling). They provide free and has almost every attacks labs for practice. Also, visit writeups to stay upto date with latest attack techniques.
+For learn more you can visit [PortSwigger's Labs](https://portswigger.net/web-security/request-smuggling). 
 							    
 <h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>References:</a></h2>
 
