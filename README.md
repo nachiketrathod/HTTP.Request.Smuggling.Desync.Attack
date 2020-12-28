@@ -289,7 +289,7 @@ Note: **If the site is live, another user's request may hit the poisoned socket 
 
 <h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>5. Explore</a></h2>
 
-I'll demonstrate the **`[TE.CL]`** attack via vulnrable Lab created with [Muzkkir Husseni](https://github.com/mymuzzy/FinitHicDeo).
+I'll demonstrate the **`[TE.CL]`** attack via vulnrable Lab, created with [Muzkkir Husseni](https://github.com/mymuzzy/FinitHicDeo).
 
 Application server validate http request length on the basis of two headers.
 1. Transfer-Encoding
@@ -307,16 +307,16 @@ To learn more types of attack visit [This Blog](https://medium.com/@knownsec404t
 ### **Transfer-Encoding and Content-Length Header:**
 
 **`Transfer-Encoding:`**
+
 When the server needs to send large amount of data, chunked encoding is used by the server because it did not exactly know how big (length) the data is going to be. In HTTP terms, when server sends response Content-Length header is omitted by the server. Instead server writes the length of current chunk in hexadecimal format followed by \r\n and then chunk, followed by \r\n (Content begins with chunk size in hex followed by chunk).
 This feature can be used for progressive rendering; however the server needs to flush the data as much as possible so that client can render content progressively.
 This feature is often used when server pushes data to the client in large amounts - usually in large size (mega/giga).
-
-For more visit [This Blog](https://stackoverflow.com/questions/19907628/transfer-encoding-chunked)
+ * For more visit [This Blog](https://stackoverflow.com/questions/19907628/transfer-encoding-chunked)
 
 **`Content-Length:`**
-The Content-Length entity-header field indicates the size of the entity-body, in decimal number of OCTETs, sent to the recipient or, in the case of the HEAD method, the size of the entity-body that would have been sent had the request been a GET.
 
-For more visit [This Blog](https://stackoverflow.com/questions/2773396/whats-the-content-length-field-in-http-header)
+The Content-Length entity-header field indicates the size of the entity-body, in decimal number of OCTETs, sent to the recipient or, in the case of the HEAD method, the size of the entity-body that would have been sent had the request been a GET.
+ * For more visit [This Blog](https://stackoverflow.com/questions/2773396/whats-the-content-length-field-in-http-header)
 
 ### **Live Demo:**
 
