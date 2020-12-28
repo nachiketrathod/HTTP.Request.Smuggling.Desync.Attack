@@ -196,16 +196,54 @@ total lack of visibility into what's happening behind the front-end can cause co
 <p align="left">
       <a href="http://nachiketrathod.com">
 	   <kbd>
-	     <img src="/Images/12.png" height=300 width=900"></a>
+	     <img src="/Images/12.png" height=280 width=900"></a>
 	    </kbd>
 </p>
 							    
 <h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>3. Detecting desync</a></h2>
 
-- To detect request smuggling we've to issue an ambiguous request followed by a normal 'Victim' request, then observe whether the latter gets an unexpected response.
-- However, this is extremely prone to interference; if another user's request hits the poisoned socket before our victim
-request, they'll get the corrupted response and we won't spot the vulnerability. This means that on a live site
-with a high volume of traffic it can be hard to prove request smuggling exists without exploiting numerous
-genuine users in the process.
-
+ **"IMP"**
+- To detect request smuggling vulnerabilities we've to issue an ambiguous request followed by a normal 'Victim' r equest, then observe whether the latter gets an unexpected       response.
+- **However, this is extremely prone to interference; if another user's request hits the poisoned socket before our victim request, they'll get the corrupted response and we won't spot the vulnerability.**
+- This means that on a live site with a high volume of traffic it can be hard to prove request smuggling exists without exploiting numerous
+  genuine users in the process.
+- Even on a site with no other traffic, you'll risk false negatives caused by application-level quirks terminating connections.
 							    
+**`what will be the detecion strategy?`**
+
+* sequence of messages which make vulnerable backend systems hang and time out the connection.This technique has few false positives, and most importantly has virtually no
+risk of affecting other users.
+
+**`Example 1:`**
+1. Let's assume the front-end server uses the Content-Length header, and the back-end uses the TransferEncoding header. **`[CL.TE]`** 
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/13.png" height=280 width=500"></a>
+	    </kbd>
+</p>
+							    
+2. **`the front end will forward the blue text only, and the back end will time out while waiting for the next chunk size.This will cause an observable time delay.`**
+3. If we take all methods for above example:
+   * `CL.CL`  -->  Back-end Response  
+   * `TE.TE`  -->  Front-end Response 
+   * `TE.CL`  -->  Front-end Response [the frontend will reject the request, thanks to the invalid chunk size 'Q'.This prevents the backend socket from being poisoned]
+   * `CL.TE`  -->  Timeout [Read the point number 2]
+   
+**`Example 2:`**
+1. Let's assume the front-end server uses the TransferEncoding header, and the back-end uses the Content-length header. **`[TE.CL]`** 
+
+<p align="left">
+      <a href="http://nachiketrathod.com">
+	   <kbd>
+	     <img src="/Images/14.png" height=280 width=500"></a>
+	    </kbd>
+</p>
+
+2. **`Thanks to the terminating '0' chunk the front-end will only forward the blue text, and the back-end will time out waiting for the X[new request] to arrive.`**
+3. If we take all methods for above example:
+   * `CL.CL`  -->  Back-end Response
+   * `TE.TE`  -->  Back-end Response
+   * `TE.CL`  -->  Timeout
+   * `CL.TE`  -->  Socket poision ![alt text](https://github.com/nachiketrathod/HTTP.Request.Smuggling.Lab/blob/main/Images/danger.png "danger")
