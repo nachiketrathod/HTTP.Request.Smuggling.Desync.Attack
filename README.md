@@ -188,7 +188,7 @@ the Transfer-Encoding:	chunked header.
 
 Note: **"Each of these quirks is harmless if both the front-end and back-end server have it, and a major threat otherwise."**
 
-<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>2. Methodology</a></h2>
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>2. Methodology :atom:</a></h2> 	
 
 The theory behind request smuggling is straightforward, but the number of uncontrolled variables and our
 total lack of visibility into what's happening behind the front-end can cause complications.
@@ -200,7 +200,7 @@ total lack of visibility into what's happening behind the front-end can cause co
 	    </kbd>
 </p>
 							    
-<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>3. Detecting desync</a></h2>
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>3. Detecting desync :detective:	</a></h2>
 
  **"IMP"**
 - To detect request smuggling vulnerabilities we've to issue an ambiguous request followed by a normal 'Victim' r equest, then observe whether the latter gets an unexpected       response.
@@ -248,7 +248,7 @@ risk of affecting other users.
    * `TE.CL`  -->  Timeout
    * `CL.TE`  -->  Socket poision :nauseated_face: [this approach will poison the backend socket with an X, potentially harming legitimate users. Fortunately, by always running the prior detection method first, we can rule out that possibility.]
 
-<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>4. Confirming desync</a></h2>
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>4. Confirming desync :thumbsup:	</a></h2>
 
 - In this step will see the full potential of request smuggling is to prove backend socket poisoning is possible.
 - To do this we'll issue a request designed to poison a backend socket, followed by a request which will hopefully fall victim to the poison.
@@ -287,7 +287,7 @@ risk of affecting other users.
 
 Note: **If the site is live, another user's request may hit the poisoned socket before yours, which will make your attack fail and potentially upset the user. As a result this process often takes a few attempts, and on hightraffic sites may require thousands of attempts. Please exercise both caution and restraint, and target staging servers were possible.**
 
-<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>5. Explore</a></h2>
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>5. Explore :alien:</a></h2>
 
 I'll demonstrate the **`[TE.CL]`** attack via vulnrable Lab, created with [Muzkkir Husseni](https://github.com/mymuzzy/FinitHicDeo).
 
