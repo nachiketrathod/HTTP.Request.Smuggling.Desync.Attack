@@ -353,12 +353,12 @@ Host: 127.0.0.1:8080
 On above example we are having the **`TE-CL`** Vulnerability on server. Let me explain all values one by one.
 - **"Content-Length"** header in request is set according to the size of the `"2c\r\n"` bytes. 
 - According to method, we are calculating the total size of first line of the content. 
-- Here we also calculating the "\r\n" new line feed.
+- Here we also calculating the **"\r\n"** new line feed.
 
 - **"Transfer-Encoding"** header is calculated by total bytes of the content. 
-- Here we are having simple HTTP GET request which size is 44 till the header ends, after "\r\n\r\n0" which indicate to stop. 
-- Decimal 44 is now converted to hexadecimal which gives "2c". The reason we have added "2c" before the content is  the total hexadecimal value of the content. 
-- After the "0" we have to add two "\r\n" line feed and send the request to the server.
+- Here we are having simple HTTP GET request which size is **`44`** till the header ends, after `"\r\n\r\n0"` which indicate to stop. 
+- Decimal 44 is now converted to hexadecimal which gives `"2c"`. The reason we have added `"2c"` before the content is  the total hexadecimal value of the content. 
+- After the **`"0"`** we have to add two **"\r\n"** line feed and send the request to the server.
 
 If you send below request to the CTF server. which gives the response with the flag.
 
@@ -396,6 +396,7 @@ For learn more you can visit [PortSwigger's Labs](https://portswigger.net/web-se
  * https://medium.com/@knownsec404team/protocol-layer-attack-http-request-smuggling-cc654535b6f
  * https://www.cgisecurity.com/lib/HTTP-Request-Smuggling.pdf
  * https://i.blackhat.com/USA-19/Wednesday/us-19-Kettle-HTTP-Desync-Attacks-Smashing-Into-The-Cell-Next-Door.pdf
+ * https://www.youtube.com/watch?v=_A04msdplXs&t=904s
 
 <h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>Lab Download:</a></h2>
 
@@ -406,3 +407,5 @@ For learn more you can visit [PortSwigger's Labs](https://portswigger.net/web-se
  - [James Kettle](https://twitter.com/albinowax)
  - [Muzkkir Husseni](https://github.com/mymuzzy/FinitHicDeo)
  - [Nishith Khadadiya](https://twitter.com/busk3r)
+
+ <strong>EOF</strong>
