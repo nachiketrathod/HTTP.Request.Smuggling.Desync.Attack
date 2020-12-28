@@ -25,7 +25,7 @@ This vulnerabilities are often **`critical`** in nature, allowing an attacker to
 
 **Lab** : Exploiting HTTP request smuggling to bypass front-end security controls via **TE.CL** vulnerability.
 
-<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>1. Core concepts</a></h2>
+<h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>1. Core concepts :ghost:</a></h2>
 <blockquote>
 <p>"Smashing into the Cell Next Door"</p>
 <p>"Hiding Wookiees in HTTP"</p>
@@ -246,7 +246,7 @@ risk of affecting other users.
    * `CL.CL`  -->  Back-end Response
    * `TE.TE`  -->  Back-end Response
    * `TE.CL`  -->  Timeout
-   * `CL.TE`  -->  Socket poision :nauseated_face: [this approach will poison the backend socket with an X, potentially harming legitimate users. Fortunately, by always running the prior detection method first, we can rule out that possibility.]
+   * `CL.TE`  -->  Socket poision :skull_and_crossbones: [this approach will poison the backend socket with an X, potentially harming legitimate users. Fortunately, by always running the prior detection method first, we can rule out that possibility.]
 
 <h2><a id="user-content-tldr" class="anchor" href="#tldr"><span class="octicon octicon-link"></span></a>4. Confirming desync :thumbsup:	</a></h2>
 
