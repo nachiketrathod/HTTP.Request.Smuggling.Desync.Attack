@@ -6,9 +6,7 @@
 </p>
 								  
 
-<p align="center">   
-     <a href="https://nachiketrathod.com">
-	    <img alt="Website" src="https://img.shields.io/website?style=flat-square&up_color=%2300ff00&up_message=nachiketrathod.com&url=https%3A%2F%2Fnachiketrathod.com"></a>
+<p align="center"> 
       <a href="https://www.twitter.com/4ccess0denie1">
            <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/4ccess0denie1?color=%2300acee&label=Follow%20%404ccess0denie1&logo=Twitter&logoColor=%2300acee&style=flat-square"></a>
       <a href="https://www.linkedin.com/in/nachiketrathod">
